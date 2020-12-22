@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the gradient function from the kandinsky_dart library, for the Dart programming language.">
+  <title>gradient function - kandinsky_dart library - Dart API</title>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">kandinsky</a></li>
+    <li><a href="../kandinsky_dart/kandinsky_dart-library.html">kandinsky_dart</a></li>
+    <li class="self-crumb">gradient function</li>
+  </ol>
+  <div class="self-name">gradient</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">kandinsky</a></li>
+      <li><a href="../kandinsky_dart/kandinsky_dart-library.html">kandinsky_dart</a></li>
+      <li class="self-crumb">gradient function</li>
+    </ol>
+    
+    <h5>kandinsky_dart library</h5>
+    <ol>
+    
+    
+    
+    
+    
+      <li class="section-title"><a href="../kandinsky_dart/kandinsky_dart-library.html#functions">Functions</a></li>
+      <li><a href="../kandinsky_dart/color2hue.html">color2hue</a></li>
+      <li><a href="../kandinsky_dart/complimentHex.html">complimentHex</a></li>
+      <li><a href="../kandinsky_dart/complimentHsl.html">complimentHsl</a></li>
+      <li><a href="../kandinsky_dart/complimentRgb.html">complimentRgb</a></li>
+      <li><a href="../kandinsky_dart/darkenHex.html">darkenHex</a></li>
+      <li><a href="../kandinsky_dart/darkenHsl.html">darkenHsl</a></li>
+      <li><a href="../kandinsky_dart/darkenRgb.html">darkenRgb</a></li>
+      <li><a href="../kandinsky_dart/gradient.html">gradient</a></li>
+      <li><a href="../kandinsky_dart/hex2hsl.html">hex2hsl</a></li>
+      <li><a href="../kandinsky_dart/hex2rgb.html">hex2rgb</a></li>
+      <li><a href="../kandinsky_dart/hsl2css.html">hsl2css</a></li>
+      <li><a href="../kandinsky_dart/hsl2hex.html">hsl2hex</a></li>
+      <li><a href="../kandinsky_dart/hsl2rgb.html">hsl2rgb</a></li>
+      <li><a href="../kandinsky_dart/lerp3.html">lerp3</a></li>
+      <li><a href="../kandinsky_dart/lightenHex.html">lightenHex</a></li>
+      <li><a href="../kandinsky_dart/lightenHsl.html">lightenHsl</a></li>
+      <li><a href="../kandinsky_dart/lightenRgb.html">lightenRgb</a></li>
+      <li><a href="../kandinsky_dart/linearGradient.html">linearGradient</a></li>
+      <li><a href="../kandinsky_dart/multiGradient.html">multiGradient</a></li>
+      <li><a href="../kandinsky_dart/rgb2css.html">rgb2css</a></li>
+      <li><a href="../kandinsky_dart/rgb2hex.html">rgb2hex</a></li>
+      <li><a href="../kandinsky_dart/rgb2hsl.html">rgb2hsl</a></li>
+      <li><a href="../kandinsky_dart/rGradient.html">rGradient</a></li>
+      <li><a href="../kandinsky_dart/rLinearGradient.html">rLinearGradient</a></li>
+      <li><a href="../kandinsky_dart/rMultiGradient.html">rMultiGradient</a></li>
+    
+    
+    
+    </ol>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+      <div><h1><span class="kind-function">gradient</span> function  </h1></div>
+
+    <section class="multi-line-signature">
+        <span class="returntype"><a href="https://api.dart.dev/stable/2.10.1/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.10.1/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.10.1/dart-core/num-class.html">num</a></span>&gt;</span></span>&gt;</span></span>
+                <span class="name ">gradient</span>
+(<wbr><ol class="parameter-list"><li><span class="parameter" id="gradient-param-ease"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.1/dart-core/Function-class.html">Function</a></span> <span class="parameter-name">ease</span>, </span></li>
+<li><span class="parameter" id="gradient-param-n"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.1/dart-core/int-class.html">int</a></span> <span class="parameter-name">n</span>, </span></li>
+<li><span class="parameter" id="gradient-param-color1"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.1/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.10.1/dart-core/num-class.html">num</a></span>&gt;</span></span> <span class="parameter-name">color1</span>, </span></li>
+<li><span class="parameter" id="gradient-param-color2"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.10.1/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.10.1/dart-core/num-class.html">num</a></span>&gt;</span></span> <span class="parameter-name">color2</span></span></li>
+</ol>)
+    </section>
+    <section class="desc markdown">
+      <p>returns an length <code>n</code> array of Vector3 colours. colours are between <code>color1</code> and <code>color2</code>, and are spaced according to the easing function <code>easeFn</code>.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span></h2>
+      <pre class="language-dart"><code class="language-dart">List&lt;List&lt;num&gt;&gt; gradient(
+    Function ease, int n, List&lt;num&gt; color1, List&lt;num&gt; color2) {
+  var d = (n - 1 != 0) ? n - 1 : 1;
+  var result =
+      List.generate(n, (i) =&gt; lerp3(ease(i &#47; d), color1, color2)).toList();
+  return result;
+}</code></pre>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    kandinsky
+      1.0.1
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/URI.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>

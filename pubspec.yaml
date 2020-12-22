@@ -1,7 +1,7 @@
 name: kandinsky
-description: A tiny color library
-# version: 1.0.0
-# homepage: https://github.com/renanborgez/kandinsky-dart
+description: A tiny color library. Create (dymanic and fixed) radial and linear gradients, convert rgb, hex, hsl and css colors.
+version: 1.0.0
+homepage: https://github.com/renanborgez/kandinsky-dart
 
 environment:
   sdk: '>=2.10.0 <3.0.0'

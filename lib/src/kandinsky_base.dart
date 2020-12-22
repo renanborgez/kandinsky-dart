@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-String padHex(String hexStr) => hexStr.length == 1 ? '0$hexStr' : hexStr;
+String _padHex(String hexStr) => hexStr.length == 1 ? '0$hexStr' : hexStr;
 
 num _wrapValue(num m, num _m, num v) {
   if (v < m) {
@@ -28,6 +28,7 @@ num _clamp(num min, num max, num n) {
 
 num _clampNorm(num n) => _clamp(0, 1, n);
 
+/// returns a hsl array
 List<num> rgb2hsl(List<num> color) {
   var r = color[0];
   var g = color[1];
@@ -65,23 +66,25 @@ List<num> rgb2hsl(List<num> color) {
   return [h, s, l];
 }
 
-num hue2rgb(num p, num q, num t) {
-  if (t < 0) t += 1;
-  if (t > 1) t -= 1;
+/// returns a color saturation
+num color2hue(num colorValue, num shading, num tint) {
+  if (tint < 0) tint += 1;
+  if (tint > 1) tint -= 1;
 
-  if (t < 1 / 6) {
-    return p + (q - p) * 6 * t;
+  if (tint < 1 / 6) {
+    return colorValue + (shading - colorValue) * 6 * tint;
   }
-  if (t < 1 / 2) {
-    return q;
+  if (tint < 1 / 2) {
+    return shading;
   }
-  if (t < 2 / 3) {
-    return p + (q - p) * (2 / 3 - t) * 6;
+  if (tint < 2 / 3) {
+    return colorValue + (shading - colorValue) * (2 / 3 - tint) * 6;
   }
 
-  return p;
+  return colorValue;
 }
 
+/// returns a rgb array
 List<num> hsl2rgb(List<num> color) {
   var h = color[0];
   var s = color[1];
@@ -96,14 +99,15 @@ List<num> hsl2rgb(List<num> color) {
 
     var p = 2 * l - q;
 
-    r = hue2rgb(p, q, h + 1 / 3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1 / 3);
+    r = color2hue(p, q, h + 1 / 3);
+    g = color2hue(p, q, h);
+    b = color2hue(p, q, h - 1 / 3);
   }
 
   return [(r * 255).round(), (g * 255).round(), (b * 255).round()];
 }
 
+/// returns a rgb array
 List<num> hex2rgb(String hex) {
   var hs = hex[0] == '#' ? hex.substring(1) : hex;
   return [
@@ -113,13 +117,17 @@ List<num> hex2rgb(String hex) {
   ];
 }
 
+/// returns a hex string
 String rgb2hex(List<num> rgb) =>
-    rgb.fold('#', (hex, c) => hex + padHex(c.round().toRadixString(16)));
+    rgb.fold('#', (hex, c) => hex + _padHex(c.round().toRadixString(16)));
 
+/// returns a hex string
 List<num> hex2hsl(String hex) => rgb2hsl(hex2rgb(hex));
 
+/// returns a hex string
 String hsl2hex(List<num> color) => rgb2hex(hsl2rgb(color));
 
+/// returns a darkened rgb array. `amount` is a value in the range `[0, 1]`
 List<num> darkenRgb(num amount, List<num> rgb) {
   return rgb
       .map((c) => [
@@ -129,6 +137,7 @@ List<num> darkenRgb(num amount, List<num> rgb) {
       .toList();
 }
 
+/// returns a lightened rgb array. `amount` is a value in the range `[0, 1]`
 List<num> lightenRgb(num amount, List<num> rgb) => rgb
     .map((c) => [
           [0, c + (c * amount)].reduce(math.max),
@@ -136,6 +145,7 @@ List<num> lightenRgb(num amount, List<num> rgb) => rgb
         ].reduce(math.min).round())
     .toList();
 
+/// returns a darkened hsl array. `amount` is a value in the range `[0, 1]`
 List<num> darkenHsl(num amount, List<num> color) {
   var h = color[0];
   var s = color[1];
@@ -143,6 +153,7 @@ List<num> darkenHsl(num amount, List<num> color) {
   return [h, s, _clampNorm(l - (l * amount))];
 }
 
+/// returns a lightened hsl array. `amount` is a value in the range `[0, 1]`
 List<num> lightenHsl(num amount, List<num> color) {
   var h = color[0];
   var s = color[1];
@@ -150,6 +161,7 @@ List<num> lightenHsl(num amount, List<num> color) {
   return [h, s, _clampNorm(l + (l * amount))];
 }
 
+/// returns a lightened hex string. `amount` is a value in the range `[0, 1]`
 String lightenHex(num amount, String hex) {
   var rgb = hex2rgb(hex);
   var ligthen = lightenRgb(amount, rgb);
@@ -157,6 +169,7 @@ String lightenHex(num amount, String hex) {
   return rgb2hex(ligthen);
 }
 
+/// returns a darkened hex string. `amount` is a value in the range `[0, 1]`
 String darkenHex(num amount, String hex) {
   var rgb = hex2rgb(hex);
   var ligthen = darkenRgb(amount, rgb);
@@ -164,6 +177,7 @@ String darkenHex(num amount, String hex) {
   return rgb2hex(ligthen);
 }
 
+/// returns a Vector3 colour somewhere between `c1` and `c2`. `t` is the "time" value in the range `[0, 1]`
 List<num> lerp3(num t, List<num> color1, List<num> color2) {
   var r1 = color1[0];
   var g1 = color1[1];
@@ -180,6 +194,7 @@ List<num> lerp3(num t, List<num> color1, List<num> color2) {
   ].toList();
 }
 
+/// returns an length `n` array of Vector3 colours. colours are evenly spaced between `color1` and `color2`.
 List<List<num>> linearGradient(
   num n,
   List<num> color1,
@@ -190,6 +205,7 @@ List<List<num>> linearGradient(
   return result;
 }
 
+/// returns an length `n` array of Vector3 colours. colours are between `color1` and `color2`, and are spaced according to the easing function `easeFn`.
 List<List<num>> gradient(
     Function ease, int n, List<num> color1, List<num> color2) {
   var d = (n - 1 != 0) ? n - 1 : 1;
@@ -198,6 +214,7 @@ List<List<num>> gradient(
   return result;
 }
 
+/// returns a length `n` array of Vector3 colours. colours are the ones formed from the `linearGradient(n/(numColours-1), color1, color2)` for all colours `color1, color2, ..., colorN`
 List<List<num>> multiGradient(num n, List<List<num>> colors) {
   var i = -1;
   return colors.fold([], (grad, color) {
@@ -217,24 +234,28 @@ List<List<num>> multiGradient(num n, List<List<num>> colors) {
   });
 }
 
+/// returns a rounded, length `n` array of Vector3 colours. colours are the ones formed from the `linearGradient(n/(numColours-1), color1, color2)` for all colours `color1, color2, ..., colorN`
 List<List<num>> rMultiGradient(num n, List<List<num>> colors) {
   return multiGradient(n, colors)
       .map((color) => color.map((c) => c.round()).toList())
       .toList();
 }
 
+/// returns a rounded, length `n` array of Vector3 colours. colours are between `color1` and `color2`, and are spaced according to the easing function `easeFn`.
 List<List<num>> rGradient(
         Function ease, num n, List<num> color1, List<num> color2) =>
     gradient(ease, n, color1, color2)
         .map((color) => color.map((c) => c.round()).toList())
         .toList();
 
+/// returns a rounded, length `n` array of Vector3 colours. colours are evenly spaced between `color1` and `color2`.
 List<List<num>> rLinearGradient(num n, List<num> color1, List<num> color2) {
   return linearGradient(n, color1, color2)
       .map((color) => color.map((c) => c.round()).toList())
       .toList();
 }
 
+/// returns an length `n` array of hsl Vector3. The 0th color is the same as the input `hsl`, while the others are colours corresponding to an eve turn around the colour wheel. If `n` is 3 for example, the two other colours would represent a 1/3 and 2/3 rotation of the colour wheel.
 List<List<num>> complimentHsl(num n, List<num> color) {
   var h = color[0];
   var s = color[1];
@@ -242,15 +263,18 @@ List<List<num>> complimentHsl(num n, List<num> color) {
   return List.generate(n, (i) => [_wrapNorm(h - (i / n)), s, l]);
 }
 
+/// returns an length `n` array of rgb Vector3. The 0th color is the same as the input `rgb`, while the others are colours corresponding to an eve turn around the colour wheel. If `n` is 3 for example, the two other colours would represent a 1/3 and 2/3 rotation of the colour wheel.
 List<List<num>> complimentRgb(num n, List<num> color) {
   return complimentHsl(n, rgb2hsl(color)).map(hsl2rgb).toList();
 }
 
+/// returns an length `n` array of hex strings. The 0th color is the same as the input `hexString`, while the others are colours corresponding to an eve turn around the colour wheel. If `n` is 3 for example, the two other colours would represent a 1/3 and 2/3 rotation of the colour wheel.
 List<String> complimentHex(num n, String hex) {
   var hsl = hex2hsl(hex);
   return complimentHsl(n, hsl).map(hsl2hex).toList();
 }
 
+/// returns an rgba css string like `rgba(255, 255, 255, 1)` from the rgb color and alpha value
 String rgb2css(num alpha, List<num> color) {
   var rgb = color.map((e) => _clamp(0, 255, e.round())).toList();
   var r = rgb[0];
@@ -260,6 +284,7 @@ String rgb2css(num alpha, List<num> color) {
   return 'rgba($r, $g, $b, ${_clampNorm(alpha)})';
 }
 
+/// returns an hsl css string like `hsl(222, 50%, 75%, 0.6)` from the hsl color and alpha value
 String hsl2css(num alpha, List<num> hsl) {
   var h = hsl[0];
   var s = hsl[1];

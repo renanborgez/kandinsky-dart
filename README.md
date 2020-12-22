@@ -2,6 +2,9 @@
 
 Full ported version of [francisrstokes/kandinsky-js]
 
+A tiny color library to create (dymanic and fixed) radial and linear gradients,
+convert rgb, hue, hex, hsl and css colors.
+
 ## Usage
 
 A simple usage example:
@@ -10,7 +13,23 @@ A simple usage example:
 import 'package:kandinsky/kandinsky.dart' as kandinsky;
 
 main() {
-  var myDarkenHex = kandinsky.darkenHex(0.5, '#6699CC');
+  var darkenHexColor = darkenHex(0.5, '#6699CC');
+  print('my darken hex color: ${darkenHexColor}');
+
+  var lightenHexColor = lightenHex(0.5, '#06795C');
+  print('my lighten hex color: ${lightenHexColor}');
+
+  var darkenRgbColor = darkenRgb(0.5, [180, 40, 20]);
+  print('my darken rgb color: ${darkenRgbColor}');
+
+  var lightenRgbColor = lightenRgb(0.5, [155, 90, 60]);
+  print('my lighten rgb color: ${lightenRgbColor}');
+
+  var myDynamicGradient = linearGradient(10, [255, 100, 50], [30, 200, 255]);
+  print('my gradient with 10 colors: ${myDynamicGradient}');
+
+  var myHslColorFromRgb = rgb2hsl([255, 255, 255]);
+  print('my hsl color from a rgb color: ${myHslColorFromRgb}');
 }
 ```
 
@@ -254,6 +273,16 @@ String rgb2css(num alpha, List<num> color)
 ---
 ```dart
 String hsl2css(num alpha, List<num> hsl)
+```
+---
+
+### __color2hue(num p, num q, num t)__
+
+> returns a saturation of a specific color value
+
+---
+```dart
+num color2hue(num colorValue, num shading, num tint)
 ```
 ---
 

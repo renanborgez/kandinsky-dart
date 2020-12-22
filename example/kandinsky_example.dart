@@ -12,4 +12,10 @@ void main() {
 
   var lightenRgbColor = lightenRgb(0.5, [155, 90, 60]);
   print('my lighten rgb color: ${lightenRgbColor}');
+
+  var myDynamicGradient = linearGradient(10, [255, 100, 50], [30, 200, 255]);
+  print('my gradient with 10 colors: ${myDynamicGradient}');
+
+  var myHslColorFromRgb = rgb2hsl([255, 255, 255]);
+  print('my hsl color from a rgb color: ${myHslColorFromRgb}');
 }

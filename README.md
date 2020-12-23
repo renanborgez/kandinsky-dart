@@ -1,6 +1,6 @@
 # kandinsky-dart
 
-![Dart](https://github.com/renanborgez/kandinsky-dart/workflows/Dart/badge.svg?branch=main) [![codecov](https://codecov.io/gh/renanborgez/kandinsky-dart/branch/main/graph/badge.svg?token=WOTH3T737X)](https://codecov.io/gh/renanborgez/kandinsky-dart) [![Pub Version](https://img.shields.io/pub/v/kandinsky?color=purple&style=plastic)](https://pub.dev/packages/kandinsky)
+![Dart](https://github.com/renanborgez/kandinsky-dart/workflows/Dart/badge.svg?branch=main) [![codecov](https://codecov.io/gh/renanborgez/kandinsky-dart/branch/main/graph/badge.svg?token=WOTH3T737X)](https://codecov.io/gh/renanborgez/kandinsky-dart) ![Pub Version](https://img.shields.io/pub/v/kandinsky?color=light)
 
 A Dart ported version of [francisrstokes/kandinsky-js]
 

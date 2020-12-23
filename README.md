@@ -4,8 +4,7 @@
 
 A Dart ported version of [francisrstokes/kandinsky-js]
 
-A tiny color library to create (dymanic and fixed) radial and linear gradients,
-convert rgb, hue, hex, hsl and css colors.
+Create dymanic and fixed gradients, convert from/to rgb, hue, hex, hsl and css colors.
 
 ## Documentation
 

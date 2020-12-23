@@ -7,6 +7,28 @@ Full ported version of [francisrstokes/kandinsky-js]
 A tiny color library to create (dymanic and fixed) radial and linear gradients,
 convert rgb, hue, hex, hsl and css colors.
 
+## Install
+1. Depend on it
+
+Add this to your package's pubspec.yaml file:
+
+```yml
+dependencies:
+  kandinsky: any
+```
+
+2. Install it
+
+You can install packages from the command line:
+
+```sh
+# with pub:
+$ pub get
+
+# with Flutter:
+$ flutter pub get
+```
+
 ## Usage
 
 A simple usage example:

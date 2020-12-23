@@ -1,5 +1,7 @@
 # kandinsky-dart
 
+[![Pub Version](https://img.shields.io/pub/v/kandinsky?color=purple&style=plastic)](https://pub.dev/packages/kandinsky)
+
 Full ported version of [francisrstokes/kandinsky-js]
 
 A tiny color library to create (dymanic and fixed) radial and linear gradients,

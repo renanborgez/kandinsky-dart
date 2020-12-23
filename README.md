@@ -1,6 +1,6 @@
 # kandinsky-dart
 
-[![Pub Version](https://img.shields.io/pub/v/kandinsky?color=purple&style=plastic)](https://pub.dev/packages/kandinsky)
+![Dart](https://github.com/renanborgez/kandinsky-dart/workflows/Dart/badge.svg?branch=main) [![Pub Version](https://img.shields.io/pub/v/kandinsky?color=purple&style=plastic)](https://pub.dev/packages/kandinsky)
 
 Full ported version of [francisrstokes/kandinsky-js]
 

@@ -2,7 +2,7 @@
 
 ![Dart](https://github.com/renanborgez/kandinsky-dart/workflows/Dart/badge.svg?branch=main) [![codecov](https://codecov.io/gh/renanborgez/kandinsky-dart/branch/main/graph/badge.svg?token=WOTH3T737X)](https://codecov.io/gh/renanborgez/kandinsky-dart) [![Pub Version](https://img.shields.io/pub/v/kandinsky?color=purple&style=plastic)](https://pub.dev/packages/kandinsky)
 
-Full ported version of [francisrstokes/kandinsky-js]
+A Dart ported version of [francisrstokes/kandinsky-js]
 
 A tiny color library to create (dymanic and fixed) radial and linear gradients,
 convert rgb, hue, hex, hsl and css colors.
@@ -324,3 +324,7 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/renanborgez/kandinsky-dart/issues
 [francisrstokes/kandinsky-js]: https://github.com/francisrstokes/kandinsky-js
+
+## License
+
+MIT

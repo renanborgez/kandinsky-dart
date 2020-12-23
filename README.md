@@ -7,6 +7,12 @@ Full ported version of [francisrstokes/kandinsky-js]
 A tiny color library to create (dymanic and fixed) radial and linear gradients,
 convert rgb, hue, hex, hsl and css colors.
 
+## Documentation
+
+Pub dev package: https://pub.dev/packages/kandinsky
+
+Online documentation: http://kandinsky-dart.borges.ninja/
+
 ## Install
 1. Depend on it
 
@@ -58,6 +64,8 @@ main() {
 ```
 
 ## API
+
+You can check the online version here: http://kandinsky-dart.borges.ninja/
 
 ### __rgb2hsl(rgbArray)__
 

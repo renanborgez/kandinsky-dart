@@ -10,7 +10,7 @@ Create dymanic and fixed gradients, convert from/to rgb, hue, hex, hsl and css c
 
 Pub dev package: https://pub.dev/packages/kandinsky
 
-Online documentation: http://kandinsky-dart.borges.ninja/
+Online documentation: https://renanborgez.github.io/kandinsky-dart/
 
 ## Install
 1. Depend on it
